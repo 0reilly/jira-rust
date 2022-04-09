@@ -1,3 +1,4 @@
+use crate::path_to_enlightenment::visibility;
 /// Using modules and visibility modifiers we have now fully encapsulated the fields of our Ticket.
 /// There is no way to create a Ticket instance skipping our validation.
 /// At the same time though, we have made it impossible to access the fields of our struct,
@@ -75,12 +76,12 @@ impl Ticket {
     /// Replace __ with the proper types to get accessor methods for the other two fields.
     /// If you are asking yourself why we are returning &str instead of &String, check out:
     /// https://blog.thoughtram.io/string-vs-str-in-rust/
-    pub fn description(__) -> __ {
-                               todo!()
-                                      }
+    pub fn description(&self) -> &String {
+        &self.description
+    }
 
-    pub fn status(__) -> __ {
-       todo!()
+    pub fn status(&self) -> &visibility::ticket::Status {
+       &self.status
     }
 }
 

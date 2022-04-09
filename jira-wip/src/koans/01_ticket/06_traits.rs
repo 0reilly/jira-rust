@@ -53,10 +53,11 @@ use crate::path_to_enlightenment::visibility::ticket::Status;
 /// Let's implement it for Status!
 impl PartialEq for Status {
     fn eq(&self, other: &Status) -> bool {
-        // If you need to refresh the `match` syntax, checkout
-        // https://doc.rust-lang.org/book/ch06-02-match.html
         match (self, other) {
-            __
+            (Status::Done, Status::Done) => true,
+            (Status::ToDo, Status::ToDo) => true,
+            (Status::InProgress, Status::InProgress) => true,
+            _ => false,
         }
     }
 }
